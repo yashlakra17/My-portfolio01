@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ThemeProvider, useTheme } from "./Components/ThemeContext";
 
-function App() {
+import Sidebar from "./Components/Sidebar/Sidebar";
+import WhatsAppFloat from "./Components/WhatsAppFloat/WhatsAppFloat";
+import Home from "./Pages/Home/Home";
+import About from "./Pages/About/About";
+import Services from "./Pages/Services/Services";
+import Portfolio from "./Pages/Portfolio/Portfolio";
+import Contact from "./Pages/Contact/Contact";
+
+import "./index.css";
+import "./App.css";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <Router>
+        <MainLayout />
+      </Router>
+    </ThemeProvider>
   );
 }
 
-export default App;
+// Separate layout to read darkMode from context
+function MainLayout() {
+  const { darkMode } = useTheme();
+
+  return (
+    <div className={`app-layout ${darkMode ? "dark" : "light"}`}>
+      < WhatsAppFloat />
+      <Sidebar />
+      <div className="page-content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
+    </div>
+  );
+}

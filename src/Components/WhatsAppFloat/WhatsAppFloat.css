@@ -1,0 +1,77 @@
+/* === WhatsApp Floating Button === */
+.whatsapp-float {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 30px;
+  z-index: 999;
+  box-shadow: 0 20px 40px rgba(37, 211, 102, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* === Success Modal === */
+.success-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* === RESPONSIVE === */
+
+/* Tablet & Small Laptop */
+@media (max-width: 992px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .success-modal {
+    padding: 15px;
+  }
+}
+
+/* Mobile Large (768px - 480px) */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    right: 15px;
+    bottom: 15px;
+  }
+}
+
+/* Mobile Small (<480px) */
+@media (max-width: 480px) {
+  .whatsapp-float {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .success-modal {
+    padding: 10px;
+  }
+}
