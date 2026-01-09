@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { useState, useEffect } from "react";
 import profileImg from "../../assets/ChatGPT Image Dec 6, 2025, 03_02_47 PM.png";
-import { useTheme } from "../ThemeContext"; 
+import { useTheme } from "../ThemeContext";
 import "./Hero.css";
 
 export default function Hero() {
-  const { darkMode } = useTheme(); // <-- get darkMode from context
+  const { darkMode } = useTheme();
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  // Track mouse for spotlight + parallax
+  // Track mouse for spotlight
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePos({ x: e.clientX, y: e.clientY });
@@ -20,7 +20,7 @@ export default function Hero() {
 
   return (
     <div
-      className={`hero-container ${darkMode ? "hero-dark" : "hero-light"}`} // <-- dark/light
+      className={`hero-container ${darkMode ? "hero-dark" : "hero-light"}`}
       style={{
         "--x": `${mousePos.x}px`,
         "--y": `${mousePos.y}px`,
@@ -44,9 +44,9 @@ export default function Hero() {
               sequence={[
                 "Full-Stack Developer",
                 2000,
-                "Web-Designer",
+                "Web Designer",
                 2000,
-                "Web-Developer",
+                "Web Developer",
                 2000,
                 "Coder",
                 2000,
@@ -63,15 +63,31 @@ export default function Hero() {
           creative design, and interactive interfaces.
         </p>
 
-        <motion.button
-          className="cv-btn"
+        {/* ===== CV LINK ===== */}
+        <motion.a
+          href="https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cv-btn cv-link"
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.92 }}
         >
           Download CV
-        </motion.button>
+        </motion.a>
+
+        {/* ===== SOCIAL LINKS ===== */}
+        {/* <div className="hero-socials">
+          <a href="https://github.com/yourusername" target="_blank" rel="noreferrer">
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+          <a href="mailto:yourmail@gmail.com">Email</a>
+        </div> */}
       </motion.div>
 
+    
       <motion.div
         className="hero-img"
         initial={{ opacity: 0, scale: 0.75 }}
