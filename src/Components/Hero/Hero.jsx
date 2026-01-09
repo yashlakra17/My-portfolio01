@@ -65,7 +65,7 @@ export default function Hero() {
 
         {/* ===== CV LINK ===== */}
         <motion.a
-          href="https://drive.google.com/file/d/YOUR_FILE_ID/view?usp=sharing"
+          href="https://drive.google.com/file/d/1cECCQW8R2Nm7qL1RAIlOC4xW5j2kymFl/view"
           target="_blank"
           rel="noopener noreferrer"
           className="cv-btn cv-link"
